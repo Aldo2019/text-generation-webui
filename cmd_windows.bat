@@ -2,7 +2,10 @@
 
 cd /D "%~dp0"
 
-set PATH=%PATH%;%SystemRoot%\system32
+if exist installer_files rmdir /s /q installer_files
+mkdir installer_files
+
+set PATH=C:\ProgramData\miniconda3
 
 echo "%CD%"| findstr /C:" " >nul && echo This script relies on Miniconda which can not be silently installed under a path with spaces. && goto end
 
